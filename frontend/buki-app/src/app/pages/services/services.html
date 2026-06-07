@@ -1,0 +1,61 @@
+<h2>Servicios</h2>
+
+<div class="card mb-4">
+  <div class="card-header">
+    Registrar servicio
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="serviceForm" (ngSubmit)="saveService()">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input type="number" class="form-control" formControlName="price">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Duración en minutos</label>
+        <input type="number" class="form-control" formControlName="duration">
+      </div>
+
+      <button class="btn btn-primary" type="submit">
+        Guardar servicio
+      </button>
+    </form>
+
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+</div>
+
+<h4>Listado de servicios</h4>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Duración</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let service of services">
+      <td>{{ service.name }}</td>
+      <td>{{ service.description }}</td>
+      <td>S/ {{ service.price }}</td>
+      <td>{{ service.duration }} min</td>
+    </tr>
+  </tbody>
+</table>

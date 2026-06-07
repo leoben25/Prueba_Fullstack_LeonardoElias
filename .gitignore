@@ -1,0 +1,12 @@
+# Dependencias
+node_modules
+
+# Variables de entorno
+.env
+
+# Builds y caché
+dist
+.angular
+
+# Configuración local
+.vscode

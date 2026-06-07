@@ -1,0 +1,75 @@
+<h2>Reservas</h2>
+
+<div class="card mb-4">
+  <div class="card-header">
+    Registrar reserva
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="bookingForm" (ngSubmit)="saveBooking()">
+      <div class="mb-3">
+        <label class="form-label">Nombre del cliente</label>
+        <input type="text" class="form-control" formControlName="client_name">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Correo del cliente</label>
+        <input type="email" class="form-control" formControlName="client_email">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Servicio</label>
+        <select class="form-select" formControlName="service_id">
+          <option value="">Seleccione un servicio</option>
+          <option *ngFor="let service of services" [value]="service.id">
+            {{ service.name }} - S/ {{ service.price }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Fecha</label>
+        <input type="date" class="form-control" formControlName="booking_date">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Hora</label>
+        <input type="time" class="form-control" formControlName="booking_time">
+      </div>
+
+      <button class="btn btn-primary" type="submit">
+        Guardar reserva
+      </button>
+    </form>
+
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+</div>
+
+<h4>Listado de reservas</h4>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Correo</th>
+      <th>Servicio</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <td>{{ booking.client_name }}</td>
+      <td>{{ booking.client_email }}</td>
+      <td>{{ booking.service_name }}</td>
+      <td>{{ booking.booking_date | date:'yyyy-MM-dd' }}</td>
+      <td>{{ booking.booking_time }}</td>
+      <td>{{ booking.status }}</td>
+    </tr>
+  </tbody>
+</table>
