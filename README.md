@@ -80,7 +80,7 @@ VARIABLES DE ENTORNO NECESARIAS:
     DB_HOST=localhost
     DB_PORT=5432
     DB_USER=postgres
-    DB_PASSWORD=your_password
+    DB_PASSWORD=tu_contraseña
     DB_NAME=buki_test
 
     Reemplazar "tu_contraseña" por la contraseña correspondiente de PostgreSQL.
@@ -117,7 +117,7 @@ COMANDOS PARA EJECUTAR FRONTEND Y BACKEND:
     
     *Body > raw > JSON:*
 
-    ejemplo de estructura del crud:
+    ejemplo de estructura del body:
     {
     "name": "Corte de cabello",
     "description": "Corte clásico para caballero",
@@ -132,7 +132,7 @@ COMANDOS PARA EJECUTAR FRONTEND Y BACKEND:
     POST /api/bookings -> Registra una nueva reserva asociada a un servicio existente.
     *Body > raw > JSON:*
 
-    ejemplo de estructura del crud
+    ejemplo de estructura del body:
     {
     "client_name": "Juan Perez",
     "client_email": "juan@gmail.com",
